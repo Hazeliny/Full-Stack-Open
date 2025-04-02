@@ -1,0 +1,30 @@
+browser->browser: user inputs note in text field
+browser->browser: user clicks Submit button
+
+note over browser:
+browser captures Submit event and executes JavaScript
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+server accepts request and accesses to req.body to fetch data
+server creates new Note object and stores it in notes array
+end note
+
+server-->browser: 302 Found (redirect to /notes)
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "new_note", date: "2025-03-29" }, ...]
+
+note over browser:
+browser parses and returns JSON data
+executes JavaScript code
+updates UI page and renders new note
+end note
