@@ -24,7 +24,6 @@ browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
 server-->browser: [{ content: "new_note", date: "2025-03-29" }, ...]
 
 note over browser:
-browser parses and returns JSON data
-executes JavaScript code
-updates UI page and renders new note
+browser parses the returned JSON data (HTML)
+browser executes JavaScript to update UI page and render new note
 end note
