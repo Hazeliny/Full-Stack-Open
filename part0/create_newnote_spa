@@ -1,0 +1,12 @@
+User -> Browser: User types text and clicks "Save"
+
+note over Browser:
+Browser updates UI immediately with user input
+end note
+
+Browser -> Server: HTTP POST /new_note_spa with JSON body { "content": "Hello!" }
+Server -> Server: Create new note { "id": 123, "content": "Hello!", "date": "2025-04-02T12:34:56Z" }
+Server -> Browser: JSON response { "id": 123, "content": "Hello!", "date": "2025-04-02T12:34:56Z" }
+
+Browser -> Browser: Add note { "id": 123, "content": "Hello!", "date": "2025-04-02T12:34:56Z" } to page
+
